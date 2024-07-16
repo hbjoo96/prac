@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Box Model
+        - 모든 HTML요소는 box형으로 이루어져 있고, CSS Box Model을 참고로 합니다.
+        - 종류 : height, width, margin, padding, border..
+
+        - (안) content - padding - border - margin (바깥)
+        */
+        /* 만약 공통된 디자인이 있다면, 한꺼번에 적용시켜주는게 좋다 */
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        #box{
+            background-color: red;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+
+            /* Margin : 경계선(border)을 기준으로 바깥 여백 */
+            /* margin : 20px; => 네 방향으로 모두 바깥 여백 */
+            /* margin-top : 50px; */
+            /* top, bottom, left, right 등 방햐을 함께 쓴다면, 그 방향대로만 여백이 생김 */
+
+        }
+        #box2{
+            background-color: blue;
+            margin-left: 100px;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        #box3{
+            background-color: green;
+            margin-left: 200px;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        #box4{
+            background-color: gray;
+            margin-left: 300px;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        /* body태그가 가지고 있는 기본 margin 값은 8px */
+        body {
+            margin : 0px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div#box -->
+    <div id="box"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+</body>
+</html>

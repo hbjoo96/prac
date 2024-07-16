@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="ulTag">
+        <li>라면</li>
+        <li>피자</li>
+        <li>밥</li>
+    </ul>
+
+    <script>
+        // 속성 노드 추가
+        // 1. DOM 요소에 속성을 생성
+        // 2. 특정 요소노드에 속성을 삽입
+        // 3. 부모요소에 자식요소 삽입
+
+        // 속성노드를 추가하는 사고의 흐름~
+        // 1. li 1개를 추가로 제작 (createElement)
+        let li = document.createElement("li")
+
+        // 2. li에 넣어줄 이미지 태그 생성 (createElement)
+        let img = document.createElement("img")
+
+        // 3. img에 넣어줄 src 속성 생성 (createAttribute)
+        let src = document.createAttribute('src')
+
+        // 4. src에 내 사진 속성 추가
+        src.value = "https://flexible.img.hani.co.kr/flexible/normal/640/427/imgdb/original/2023/0619/20230619501345.jpg"
+
+        // 5. 4번에서 완성시킨 속성노드를 img 태그에 삽입
+        //    속성을 세팅할게 == setAttributeNode
+        img.setAttributeNode(src)
+        
+        // 6. 완성된 img태그를 li의 자식으로 추가
+        li.appendChild(img)
+
+        // 7. 완성된 li태그를 ul에 추가
+        let ul = document.getElementById("ulTag")
+        ul.appendChild(li)
+
+
+
+    </script>
+</body>
+</html>

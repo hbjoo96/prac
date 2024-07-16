@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="h1Tag">오늘의 점심은?</h1>
+    <button onclick="popUp()">1) 인라인방식</button>
+    <button id="btn_han">2) 이벤트 핸들러</button>
+    <button id="btn_lis">3) 이벤트 리스너</button>
+
+    <script>
+
+        /* Event 설명
+        Event : 웹페이지에서 사용자에 의해 발생되는 사건
+          - 마우스를 클릭했을때, 마우스를 올렸을 때.. 등등
+
+          1) 인라인 방식
+          - HTML태그에 직접 함수의 이름을 작성하는 방법
+          - ex.<button onclick=함수이름()></button>
+          - 단점 : 개발자 도구를 통해 함수명이 노출되어 보안상의 위험이 있음, 한 요소당 하나의 이벤트만 등록 가능
+
+          2) 이벤트 핸들러 (Event Handler)
+          - 사용자가 이벤트를 발생시켰을때 그 이벤트에 대응하여 처리하는 함수
+        
+          3) 이벤트 리스너 (Event Listener)
+          - 가장 권장하는 방식
+          - 하나의 이벤트에 여러 이벤트 핸들러를 등록할 수 있다.
+          - 요소.addEventListener('이벤트이름', 실행할함수)
+
+          ** TIP!
+          - document에서 DOM 요소를 가져올 때, 변수선언에는 요소 자체를 넣는 것이 가장 사용하기 용이하다.
+
+            let txt = document.getElementById('txt') (o)
+            let txt = document.getElementById('txt').value (사용에 한계가 있음)
+
+        */
+
+
+        // 실습을 위한 준비물 함수 두개
+        const popUp = ()=>{
+            alert('KT구내식당')
+        }
+
+        const popUp2 = ()=>{
+            alert('수육')
+        }
+
+        // 버튼들을 클릭 시, 각각 다른 방법을 이용해서 함수 호출
+        // 2. 이벤트 핸들러
+        //  - 하나의 이벤트만 처리 가능, html 요소에서는 보이지 않음.
+        let btn_han = document.getElementById('btn_han')
+        btn_han.onclick = popUp // 소괄호를 안붙임 -> 조건부이기 때문에, 소괄호를 붙이면 계속 호출됨
+        btn_han.onclick = popUp2
+
+        // 3. 이벤트 리스너(중요도 ★★★★★)
+        // document.요소.addEventListener('이벤트명', 이벤트가 들어왔을 때 실행할 함수)
+        //  장점 : 다중 이벤트 등록 가능
+        let btn_lis = document.getElementById('btn_lis')
+        btn_lis.addEventListener('click', popUp)
+        btn_lis.addEventListener('click', popUp2)
+
+        // Tip! 함수를 직접 작성하는 경우
+        // 익명함수 : 이름이 없는 함수, 함수 이름없이 function을 이용, 메모리를 아끼는 방법
+        btn_lis.addEventListener('click', ()=>{
+            alert('직접 등록한 함수')
+        })
+
+    </script>
+</body>
+</html>

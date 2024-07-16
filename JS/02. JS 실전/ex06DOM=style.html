@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id = 'msg'>Hello JavaScript!</p>
+    <script>
+
+        // 요소의 CSS 스타일 다루기
+        // - HTML요소의 style 속성 값을 접근하거나 변경
+        // - 방법 : 요소.style.속성 = "값"
+
+
+        // 스타일을 지정할 요소 가져오기
+        const msg = document.getElementById('msg')
+        msg.style.color = 'red'
+        msg.style.backgroundColor = 'pink'
+
+        /*
+            - DOM으로 스타일을 다룰 때는 모든 속성 값을 카멜케이스로 작성한다.
+              - CSS : background-color
+              - JS : backgroundColor
+
+            - 표기법 종류? (case styles)
+              1) 카멜케이스 : camelCase (앞 소문자, 뒤 대문자) - JS 사용
+              2) 파스칼케이스 : Pascal Case (앞 대문자, 뒤 대문자) - 
+              3) 스네이크케이스 : snake_case (_기호로 연결)
+              4) 케밥케이스 : kebab-case (-기호로 연결)
+
+              5) 헝가리안케이스 : 접두어에 자료형을 표기 (ex) strName = "홍길동")
+
+        */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        console.log(minus(10, 7)) // 호이스팅 현상으로 오류가 나지 않음
+
+
+
+
+
+        /*
+        함수 == 특정 기능들을 묶어서 호출할 수 있도록 하는 기능
+        예를 들어, 우리가 매번 주스를 손으로 짜서 먹는 것을 반복하고 싶지 않아서 믹서기*(함수)를 만드는 것
+        믹서기가 하는 일은 어떤 과일*(매개변수)을 넣으면 그 과일을 갈아서 주스로 만들어준다.*(함수의 실행문장)
+
+        자몽*(매개 변수에 넣을 데이터, 인자)을 넣으면 자몽주스*(호출결과)가 되고, 오렌지*(인자)를 넣으면 오렌지 주스*(호출결과)가 된다.
+
+
+
+        ** 함수의 특징 : 함수 호이스팅(Hoisting)
+            - 코드 실행은 위에서 아래로 실행되지만, 함수 선언문이 정의 되어있다면, 자바스크립트 엔진은 해당 함수를 최상단으로 끌어올려 먼저 읽어들인다.
+            - 호이스팅은 결과의 예측을 어렵게 한다. == 협엄에 어려움이 있는 것
+            - 변수 호이스팅은 무엇으로 해결했지? let, const
+              => 함수는 어디에든 붙을 수 있음 - 변수할당, 객체의 속성값, 다른 함수
+              => 아! let, const에 함수를 할당해서 호이스팅을 해결하자!
+
+              - let과 const는 TDZ(Temporal Death Zone)의 영향을 받는다.
+              - 값을 할당하기 전에는 그 친구를 TDZ 죽은 공간으로 만들어버림.
+              - "너 할당전까지는 접근 못해"
+        */
+
+        // exFunc()
+        // const를 활용하는 이유는 재할당을 막기 위해서
+        const exFunc = function(){
+            console.log('호이스팅 일어나나~?')
+        }
+        exFunc()
+
+        // 호이스팅을 방지하기는 해야하는데, 조금 긴데? **화살표함수(Arrow Function)**
+        /*
+        화살표 함수의 구조
+        const 함수이름 (매개변수, 매개변수2..)=>{
+            // 실행문장
+            return 매개변수*매개변수2
+        }
+
+        함수이름(인자1, 인자2...)
+        */
+        const exFunc2 = ()=>{
+            console.log('화살표 함수 확인...')
+        }
+
+        exFunc2()
+
+        // 0. 함수를 사용하지 않았을 때
+        console.log('안녕하세요 저는 교육생입니다.');
+        console.log('안녕하세요 저는 교육생입니다.');
+        console.log('안녕하세요 저는 교육생입니다.');
+
+        // 1. 함수의 선언
+        // function 함수명(){}
+        // () => 매개변수
+        // {} => 함수의 실행문장
+
+        function greet() {
+            console.log('안녕하세요 저는 교육생입니다.');
+        }
+        
+        // 2. 함수 호출하기
+        // - 함수를 선언만 한다는 것은 믹서기를 만들어놓고 안쓴 것과 같다
+        // - 호출을 해야 비로소 사용이 됨
+        // 함수이름()
+        greet()
+        greet()
+        greet()
+
+        // 3. 매개변수를 이용한 함수
+        function greetname(name){
+            console.log(`안녕하세요 저는 ${name} 교육생입니다.`);
+        }
+        //                 (함수)       (인자)
+        // let inputName = prompt('이름이 무엇입니까?')
+        // greetname(inputName)
+
+        // 4. return을 이용한 함수
+        // - 함수를 실행했을 때 단순 실행이 아니라 어떤 특정 값을 받고 싶다면 return문 안에 식을 작성하면 된다
+
+        function sum(num1, num2) {
+            return num1+num2
+        }
+
+        let result = sum(2, 3)
+        console.log(result);
+
+        // 예제) minus라는 이름의 함수를 생성해보자/ 이 함수는 값을 두개 입력받아서 뺄셈을 해주는 함수다.
+        // 이때, 항상 큰수 - 작은수의 결과를 낸다.
+        // return이 반드시 포함되어 있어야 한다.
+        
+        // [결과창] console창에 "minus 함수의 결과는 2다."
+        
+        
+        // 내 풀이
+        function minus(num1, num2) {
+            if (num1 < num2){
+                return num2 - num1
+            }else{
+                return num1 - num2
+            }
+        }
+
+        // let inputNum1 = parseInt(prompt('첫번째 수를 입력해주세요'))
+        // let inputNum2 = parseInt(prompt('두번째 수를 입력해주세요'))
+
+        // console.log('minus 함수의 결과는 '+minus(inputNum1, inputNum2)+'다.')
+
+
+        /* 풀이
+        function minus(a,b){
+            return a>b ? a-b : b-a
+        }
+        
+        let num1 =  parseInt(prompt('첫번째 숫자'));
+        let num2 =  parseInt(prompt('두번째 숫자'));
+
+        let res = minus(num1, num2)
+        console.log('minus 함수의 결과는 '+res+'(이)다.')
+        
+        */
+    </script>
+</body>
+</html>

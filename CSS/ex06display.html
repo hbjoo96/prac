@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div는 block 형식으로 공간을 분할한다.
+        
+        1) display : block
+        - width, height 값의 설정이 가능하다.
+        - div는 기본 default 값이 block이다. 
+          그래서 display에 대한 값을 지정해주지 않는다면, 기본적으로 block형식을 따른다.
+        */
+        div {
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+        
+            display: inline;
+        }
+
+        /* 2) display : inline
+        - 대표적으로 <span>이 있음.
+        - 내가 담은 컨텐츠까지만 크기로 삼는 속성
+        - width 값과, height 값의 설정이 불가
+        */
+        span {
+            background-color: skyblue;
+            width: 100px;
+            height: 100px;
+
+            /* display:  block; */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ** 공간 분할 태그
+    
+    - 공간을 분할해서 원하는 레이아웃을 구성할 수 있다.
+    - 대표적인 공간 분할태그에는 <div> 태그가 있다.
+    - div는 공간을 block 형식으로 분할한다.
+    -->
+
+    <div>오늘은</div>
+    <div>즐거운</div>
+    <div>수요일</div>
+
+
+    <span>김치찌개</span>
+    <span>된장찌개</span>
+    <span>순창 메기매운탕</span>
+
+</body>
+</html>

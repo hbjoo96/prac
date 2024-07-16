@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* while문
+        - 조건식이 참(true) 일 때, 반복수행하는 구문
+        - 만약 반복 수행을 멈추고 싶다면 조건식을 false로 만들어주면 됨 (메모리에 무리가 덜 감 : 단, 요즘에는 메모리를 크게 신경쓸 필요가 없음)
+        - 반복문을 빠져나가는 구문 : break (직관적임)
+        
+        while(조건식){
+            실행문장 입력
+        }
+        */
+
+        // 1부터 3까지 출력
+        let num = 1
+
+        while (num <= 3) {
+            console.log(num);
+            num += 1;
+        }
+
+        // while (true) {
+        //     if(num <= 3){
+        //         console.log(num);
+        //         num += 1;
+        //     }
+        // }
+
+
+        // 예제 1
+        // "JS 재미있다" 라는 문장을 10번 출력하는 while문 작성
+        
+        
+        // 내 풀이
+        let count = 1;
+        while(count <= 10){
+            console.log("JS 재미있다")
+            count += 1;
+        }
+
+        // Break문 활용 풀이
+        let count2 = 1
+        while (true){
+            
+
+            console.log('JS 재미있다!')
+            count2 += 1;
+            if (count2 > 10){
+                break;
+            }
+            // project tip!
+            // while true 문을 작성할 때는 임시로 break를 무조건 넣어서 시작하는 편이 좋다.
+            
+            // break
+        }
+
+    </script>
+</body>
+</html>

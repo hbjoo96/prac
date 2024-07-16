@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 계산기 실습!
+        - 두 숫자와 연산자를 입력받았을 때 결과를 출력하는 프로그램을 구현하겠다.
+
+        step 1) 첫번째 숫자를 입력받는다. (num1)
+        step 2) 두번째 숫자를 입력받는다. (num2)
+        step 3) 연산할 기호를 입력받는다. (+, -, *, /)
+        
+        step 4) 4개의 함수를 생성
+          - 함수 이름 : addNum, minusNum, multiNum, divNum
+          - 매개변수 : a, b
+          - minus, div는 큰수에서 작은 수에 대한 연산을 진행
+          - 결과는 문서에 __과 __에 대한 연산결과는 __입니다. 라고 출력
+        */
+
+        let num1 = parseInt(prompt('첫번째 숫자를 입력해주세요.'));
+        let num2 = parseInt(prompt('두번째 숫자를 입력해주세요'));
+        let func = prompt('연산할 기호를 입력해주세요')
+        
+        const addNum = (a, b)=>{
+            return a+b
+        }
+        
+        const minusNum = (a, b)=>{
+            return a>b ? a-b : b-a
+        }
+        
+        const multiNum = (a, b)=>{
+            return a*b
+        }
+        
+        const divNum = (a, b)=>{
+            return a>b ? a/b : b/a
+        }
+        
+
+        const logic = (a,b)=>{
+            if (func == "+"){
+                return addNum(a, b)
+
+            }else if (func == "-"){
+                return minusNum(a, b)
+
+            }else if (func == "*"){
+                return multiNum(a, b)
+
+            }else if (func == "/"){
+                return divNum(a, b)
+
+            }
+            
+        }
+
+        document.write(num1+"(와)과 "+num2+"에 대한 "+func+" 연산결과는 "+logic(num1, num2)+"입니다.")
+        
+
+
+        /* 풀이
+        const addNum = (a, b)=>{
+            return a+b
+        }
+        
+        const minusNum = (a, b)=>{
+            return a>b ? a-b : b-a
+        }
+        
+        const multiNum = (a, b)=>{
+            return a*b
+        }
+        
+        const divNum = (a, b)=>{
+            return a>b ? a/b : b/a
+        }            
+        
+        let num1 = Number(prompt('첫번째 숫자를 입력하시오.'));
+        let num2 = Number(prompt('두번째 숫자를 입력하시오.'));
+        let op = prompt('연산자를 입력하시오.')
+
+        if (op === "+"){
+            document.write('연산 결과는' + addNum(num1, num2))
+        } else if (op === "-"){
+            document.write('연산 결과는' + minusNum(num1,num2))
+        } else if (op === "*"){
+            document.write('연산 결과는' + multiNum(num1,num2))
+        } else if (op === "/"){
+            document.write('연산 결과는' + divNum(num1,num2))
+        } else{
+            '잘못입력하셨습니다.'
+        }
+
+
+        */
+        </script>
+</body>
+</html>

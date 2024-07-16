@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        ** 변수를 선언하는 방법과 위치에 따라서 프로그램 내에서 변수가 사용될 수 있는 범위가 달라진다.
+        
+            (1) 전역변수 : 함수의 바깥쪽에 선언하여 문서(document/html) 전체 범위에서 사용할 수 있는 변수
+            (2) 지역변수 : 함수 안에 선언을 하면 선언된 함수 내부에서만 사용할 수 있는 변수
+
+            - 스코프 : 유효 범위
+              -> 전역변수는 전역 스코프를 가진다.
+              -> 지역변수는 지역 스코프를 가진다.
+        */
+
+        let name = "주현빈" // 전역변수 : 어디서든 사용 가능
+
+        function scope() {
+            console.log(name)
+
+            let menu = "KT구내식당" // 지역변수 : 선언한 함수 안에서만 사용 가능
+        }
+
+        scope()
+        console.log(menu);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="frm" method="post" action="#" target="_blank" onsubmit = "return false">
+        <input type="text" name="name">
+        <input type="submit" value="출력" onclick = "setName()">
+    </form>
+    
+    <div id="space"></div>
+
+    <script>
+        // 1. submit을 눌렀을 때, 전송이 되지 않도록 방지 작업 -> HTML요소 수정 *
+        // 2. 문서에서 이름이 frm인 form 태그 안에 이름이 name인 input을 가져와서*
+        //    inputName이라는 변수에 할당 -> script 내 작성
+        //  tip! input 요소 접근 : document.form이름.input이름
+        let inputName = document.frm.name;
+        console.log('inputName', inputName);
+
+
+        // 3. '출력'버튼 클릭 시, setName이라는 함수를 실행시켜주겠다.*
+        // const print = ()=>{
+        //     console.log('확인');
+        // }
+
+        // 4. setName이라는 함수 생성 -> script 내 작성
+        const setName = ()=> {
+
+            const title = document.getElementById('space')
+            title.innerHTML += `${inputName.value}<br>`
+
+            console.log(title);
+        }
+
+        /*
+        const setName = ()=> {
+
+            console.log('name', inputName.value)
+            let space = document.getElementById('space')
+            space.innerHTML += `${inputName.value}<br>`
+        }
+        */
+        // 5. inputName 안에 있는 값을 가져와서, id가 space인 공간 안에 누적 -> script 내 작성
+
+
+    </script>
+
+</body>
+</html>

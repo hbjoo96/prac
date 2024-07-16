@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            border: 10px solid greenyellow
+        }
+
+        .text{
+            background-color: lightcoral;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id = 'content' class = 'box text'>JavaScript ClassList</div>
+
+    <script>
+
+        let content = document.getElementById('content')
+
+        // calss 속성에 접근해서 모든 값을 가져오겠다 : 요소.classList
+        console.log(content.classList);
+
+        // HTML 요소의 class 속성 값 추가 : 요소.classList.add("추가할내용")
+        content.classList.add('bg')
+
+        // HTML 요소의 class 속성 값 삭제 : 요소.classList.remove("삭제할 내용")
+        content.classList.remove('text')
+
+        // HTML 요소에 속성 값이 존재하는지 확인 : 요소.classList.contains("검색할내용")
+        let ck = content.classList.contains('box')
+        console.log(ck);
+
+        // HTML 요소의 class 속성 값을 확인한 후에, 추가 또는 삭제
+        // 요소.classList.toggle("내용")
+        //  - 만약 그 class가 있다면, 그 class를 삭제
+        //  - 만약 그 class가 없다면, 그 class를 추가
+
+        content.classList.toggle('newClass');
+        console.log(content.classList);
+        content.classList.toggle('newClass');
+        console.log(content.classList);
+
+
+
+    </script>
+</body>
+</html>

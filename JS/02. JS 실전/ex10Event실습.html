@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="h1Tag">마우스를 올려주세요!</h1>
+    <button id="btn">클릭!</button>
+
+    <script>
+
+        // 1. id가 btn인 버튼을 클릭 시, "클릭 이벤트 발생" 이라는 팝업창을 띄워줌
+        //   - 조건 : 리스너 방식으로 이벤트 작성
+        //   - 함수는 어떤 방식으로 써도 ok, 단 1번 문제와 2번 문제를 다르게 작성
+
+        const popUp = ()=>{
+            alert('클릭 이벤트 발생')
+        }
+        
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click', popUp)
+
+        
+
+
+        // 2. id가 h1Tag인 h1 위에 마우스를 올렸을 시, "마우스 hover"라는 팝업창을 띄워줌
+        //   - 조건 : 리스너 방식으로 이벤트 작성
+        //   - 함수는 어떤 방식 ok, 1번과 다른 방식
+        let h1Tag = document.getElementById('h1Tag')
+        h1Tag.addEventListener('mouseover', ()=>{
+            alert('마우스 hover')
+        })
+
+
+        // 3. 완료하신 분들은 마우스 hover 라는 팝업 캡쳐해서 단톡방 업로드
+        //   - 새로운 주변 친구들 도와주기~
+
+    </script>
+</body>
+</html>

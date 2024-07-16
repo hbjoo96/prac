@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="#">
+
+        <input type="text" id="text1">
+        <input type="submit" id="submit">
+
+    </form>
+
+    <script>
+
+        // 1. 서브밋 버튼에게 클릭 이벤트부여
+        const submit = document.getElementById('submit');
+        submit.addEventListener("click", (e)=>{
+            let data = document.getElementById('text1').value;
+            if (data == 1){
+                e.preventDefault();
+                alert("1말고 다른거 입력하세요!")
+            }
+            
+        })
+
+
+
+
+        // 요소들 중에 기본기능을 탑재한 요소가 존재(a, submit, 마우스우클릭)
+        // 기본기능을 취소하는 방법 -> event.preventDefault()
+
+
+        // 2. 우클릭(contextmenu) 방지
+        window.addEventListener("contextmenu", (e)=>{
+            e.preventDefault();
+            alert("우클릭이 방지되었습니다!");
+        })
+
+    </script>
+
+</body>
+</html>

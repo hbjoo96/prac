@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* table{
+            border: 1px solid black
+        }
+        td{
+            border: 1px solid black
+        }
+         */
+    </style>
+</head>
+<body>
+    <script>
+        // 내 풀이
+        // document.write('<table>')
+        // for (i=1; i<=9; i++){
+        //     document.write('<tr><td>'+"["+i+'단'+"]"+'<br>')
+        //         for (j=1; j<=9; j++){
+        //             document.write(+i+"X"+j+"="+i*j+"<br>")
+
+        //     }
+        //     document.write('<tr><td><br>')
+
+        // }
+        // document.write('<table>')
+
+        // 풀이
+
+        // document.write('<table>')
+        for(let i=2; i<10; i++){
+            document.write('&nbsp;'+i+'단<br>')
+            // &nbsp;   : Non-breaking Space 줄바꿈없는 띄어쓰기
+                for(let j=1; j<10; j++){
+                    document.write(`${i}*${j}=${i*j}<br>`)
+                    // document.write(i+'X'+j+'='+i*j+'<br>')
+                }
+        }
+        // document.write('</table>')
+
+
+    </script>
+</body>
+</html>

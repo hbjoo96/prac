@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 상단바 실습을 해보자!
+        1. container의 height 100px
+        2. flexbox를 이용해서 상단바 구현
+        3. 
+        */
+        .container{
+            height: 100px;
+            background-color: aliceblue;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 25px;
+            flex-basis: 40%;
+            
+
+        }
+        
+        .box1{
+            height: 100px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            text-decoration: none;
+            margin-left: 20px;
+
+        }
+
+        .box2{
+            font-size: 20px;
+            height: 100px;
+            width: 200px;
+            font-family: '굴림';
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        
+
+        .box3{
+            height: 100px;
+            width: 170px;
+            font-size: 20px;
+            font-family: '굴림';
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-right: 20px;
+            justify-content: space-between;
+
+        }
+        
+        *{
+            text-decoration: none;
+
+        }
+        
+        
+        /* div{
+            border: 1px solid black;
+
+        } */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <h1>AIS</h1>
+        </div>
+        <div class="box2">
+            <a href="#">메뉴</a>
+            <a href="#">BEST</a>
+            <a href="#">뉴스</a>
+        </div>
+        <div class="box3">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

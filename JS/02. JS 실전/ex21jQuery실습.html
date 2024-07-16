@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <span id = "num">0</span>
+    <br/>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+
+
+    <script>
+        /* jQuery 실습 : 카운터 만들기
+        1) +누르면 숫자 1씩 증가
+        2) -누르면 숫자 1씩 감소
+        * 단, jQuery 문법만을 이용해서 작성하고 숫자는 0밑으로 내려가지 않도록 한다.
+        */
+
+        $('#plus').click(()=>{
+            let num = $('#num')
+            num.text(parseInt(num.text())+1)
+        })
+
+        $('#minus').click(()=>{
+            let num = $('#num')
+            parseInt(num.text()) > 0 ? num.text(parseInt(num.text())-1) : num.text(0)
+        })
+
+
+        // 풀이
+        /*
+        let num = $('#num')
+        $('#plus').click(()=>{
+            num.text(Number(num.text())+1)
+        })
+        
+        let num = $('#num')
+        $('#minus').click(()=>{
+            if(Number(num.text())>0){
+                num.text(Number(num.text())-1)
+            }
+        })
+        
+        */
+    </script>
+
+</body>
+</html>

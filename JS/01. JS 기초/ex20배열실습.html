@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // step1. 빈 배열 array를 생성 후, array의 길이를 출력하시오.
+        // 결과창(console) => step 1. 0
+        let arr = []
+        console.log("1번 문제:", arr.length);
+
+        // step2. array에 총 5개의 숫자를 저장하시오. (1 ~ 100)
+        arr = [5, 10, 15, 20, 25]
+        console.log('2번 문제:'+ arr);
+
+        // step3. array 안에 있는 모든 데이터를 출력하시오.
+        // 결과창 (console)에는 다섯개의 숫자가 하나씩 나열
+        console.log("3번 문제:");
+        for (i=0; i<arr.length; i++){
+            console.log(arr[i]);
+        }
+
+        // step4. array의 세번째 요소를 100으로 수정
+        // case1) 배열함수 이용
+        // arr.splice([2],[1], 100)
+
+        // case2) 인덱스를 통해 접근
+        arr[2] = '100'
+        console.log('4번 문제:'+ arr);
+
+        // step5. array의 두번째 요소를 삭제
+        arr.splice(1,1)
+        console.log('5번 문제:'+ arr);
+    </script>
+</body>
+</html>

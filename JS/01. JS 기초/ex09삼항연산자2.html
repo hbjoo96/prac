@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>🍊오렌지를 포장하자!🍊</h2>
+    <script>
+        // 1. 한 박스에 담을 수 있는 오렌지 수를 입력하세요. (boxOrange)
+        // 2. 현재 내가 가진 오렌지의 개수를 입력하세요. (curOrange)
+        // 3. 개수에 따라 필요한 박스의 수를 출력하시오.
+        // 결과 : 필요한 박스의 수
+
+        // 내 풀이
+        let boxOrange = prompt("한 박스에 담을 수 있는 오렌지 수를 입력하세요.")
+        let curOrange = prompt("현재 내가 가진 오렌지의 개수를 입력하세요.")
+
+        let needBox = curOrange%boxOrange === 0 ? parseInt(curOrange/boxOrange) : parseInt(curOrange/boxOrange+1)
+        console.log("한 박스에 담을 오렌지 :", boxOrange);
+        console.log("현재 오렌지 개수 :", curOrange);
+        console.log("필요한 박스의 수 :", needBox);
+
+
+        // 선생님 풀이
+        // let boxOrange = parseInt(prompt('한 박스에 담을 오렌지 수를 입력하세요.'))
+        // console.log('한 박스에 담을 수 있는 오렌지 수 : ' + boxOrange)
+        // let curOrangeparseInt(prompt('현재 오렌지 수를 입력하세요.'))
+        // console.log('현재 오렌지 수 : ' + curOrange)
+        // curOrange%boxOrange === 0 ? curOrange/boxOrange : curOrange/boxOrange+1
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>연산자</h2>
+    <script>
+        // 연산자 (연산을 위해 사용하는 기호)의 종류
+        
+        // 1. 산술연산자
+        // +, -, *, /, % (나머지 연산자)
+        console.log(100/3);
+        console.log(100%3);
+
+        // 문자+숫자로 연산을 지행하면 문자가 됨
+        console.log(1+'등');
+        console.log(1,'등');
+
+        // 2. 증감연산자
+        // 변수의 값을 1씩 증가시키거나, 감소시키는 연산자
+
+        // 2-1) ++
+        let num = 1;
+        num++ // num = num+1
+        console.log('++', num);
+
+        // 2-2) --
+        num--
+        console.log('--', num);
+
+        // 3. 대입연산자 (=)
+        // 산술연산자와 대입 연산자를 복합적으로 사용 == 복합대입연산자
+
+        // 3-1) +=
+        // a += 3 (몇씩 더할 건지 숫자를 지정)
+        // a = a+3
+
+        let num2 = 100;
+        // console.log(num2+=3);
+        num2+=3; //num2 = num2 + 3
+        console.log('+=', num2);
+
+        // 3-2) -=
+        num2-=3; //num2 = num2 - 3
+        console.log('-=', num2);
+
+        // 3-3) *=
+        num2 *= 3;
+        console.log('*=', num2);
+
+        // 3-4) /=
+        num2 /= 3;
+        console.log('/=', num2);
+
+        // 3-5) %=
+        // num2 %= 3;
+        // console.log('%=', num2);
+
+        // 4. 비교연산자
+        // a > b : a가 더 크다 (초과), b가 더 작다 (미만)
+        // a >= b : a가 b보다 크거나 같다 (이상), b가 더 작거나 같다 (이하)
+
+        // 4-1) 대입 vs 비교 vs 일치
+        // = (대입)
+        // == (비교 - 단순 내용 '비교', 자료형 신경쓰지 않음)
+        //            모든 피연산자를 문자로 강제 형변환해서 비교
+        // === (일치 - 내용과 자료형을 모두 '일치'하는지 비교 => 권장사항)
+
+        console.log('== 비교 결과', 3 == '3');
+        console.log('=== 비교 결과', 3 === '3');
+
+        // 4-2) 불일치 !=, !==
+        console.log('!= 비교 결과', 3 != '3');
+        console.log('!== 비교 결과', 3 !== '3');
+        
+        // project tip)
+        // boolean 타입의 변수 앞에 !를 붙이면, 반대 상태가 됨 - 상태를 스위칭 할 때 활용 
+        let mode = true;
+        console.log('현재 mode', mode);
+        console.log('반대 mode', !mode);
+
+        // 5. 논리 연산자
+        // || (OR) : 피연산자 중 하나라도 true 라면 true를 반환, 전부 false여야 false를 반환 (조건부)
+        console.log('OR 연산자', 3 == '3' || 3 === '3');
+        console.log('OR 연산자', 3 === '3' || 3 === '3');
+
+        // &&(AND) : 모든 피연산자가 true여야 true를 반환, 하나라도 false라면 false를 반환
+        console.log('AND 연산자', 3 == '3' && 3 === '3');
+        console.log('AND 연산자', 3 == '3' && 3 == '3');
+
+        // 6. ★★★ 연산자 ★★★
+        // ★★★ React에서 중요하게 여겨지는 연산자!! ★★★
+        // 참 / 거짓에 따라 선택적으로 실행되는 조건문
+        
+        // 조건문 ? 선택문1 : 선택문2
+        // 조건문이 참이라면 선택문1을, 조건문이 거짓이라면 선택문2를 실행
+
+        let auth = false;
+        let comment = auth === true ? '환영합니다.' : '로그인 해주세요.'
+        console.log(comment)
+
+        // 회원 / 비회원을 구분하거나, 다크모드 / 라이트모드 등 조건이 1개에 맞다 아니다로만 구분한다면 삼항연산자 활용
+
+        // project tip)
+        // 조건이 boolean 타입 비교인 경우, 짧게 생략이 가능
+
+        let comment2 = auth ? '환영합니다.' : '로그인 해주세요.'
+        console.log(comment2);
+
+    </script>
+</body>
+</html>

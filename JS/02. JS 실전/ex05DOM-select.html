@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form name="frm" method="post" action="#" target="_blank" onsubmit="return false;">
+        
+        
+        <select name='major' onchange="sel_change()">
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JS</option>
+
+
+        </select>
+
+        <input type="submit" value="전송" onclick="send()">
+
+    </form>
+
+    <p id="space"></p>
+
+    <script>
+
+        /*
+        기본적으로 form태그 내에 있는 input, button을 클릭하게 되면 form태그는 제출을 하려고 한다.
+        내가 만약에, 제출하기 전 다른 함수를 실행시켜주고 싶다면?
+        <form>태그에 onsubmit={return false;}를 추가해준다.
+
+            1. select 내 모든 option 요소에 접근
+               -> select이름.options
+        */
+
+        let options = document.frm.major.options
+        console.log(options[1].value); // 옵션 값 가져오는 방법
+        console.log('options', options) // select 태그의 옵션들
+        console.log('options 요소', options[1].value) // select 태그의 옵션들
+
+
+        const send = () => {
+        console.log('send 함수 호출 완료!');
+        
+        
+        // **문제**
+        // 1. 선택된 option요소의 index 값을 가져오자.
+        // 2. 가져온 index 값의 내용을 getText라는 변수에 지정
+        // 3. id가 space인 공간에 "가장 좋아하는 과목은 JS입니다."라는 멘트를 띄워줄 것
+        // ================ 기본문제
+        // 빨리 푼 사람들은 여러번 누르면 계속해서 누적되도록 만들어줄 것
+            
+        //  **내 풀이**
+            let sel = document.frm.major;
+            let getText = sel.selectedIndex;
+            // console.log("가장 좋아하는 과목은 "+options[getText].value+"입니다.");
+            const title1 = document.getElementById('space')
+            title1.innerHTML += "가장 좋아하는 과목은 "+options[getText].value+"입니다.<br>" // innerText와 innerHTML의 차이 : HTML은 태그까지 인식함 / Text는 텍스트만 인식 
+            
+            /* 풀이
+            let sel = document.frm.major // html 문서에서 가져온 select태그
+            let sel_idx = sel.selectedIndex // 사용자가 선택한 인덱스 번호
+            
+            let getTxt = options[sel_idx].value
+            console.log('getTxt', getTxt)
+
+            let space = document.getElementById('space')
+            space.innerText += `가장 좋아하는 과목은 ${getTxt}입니다.`
+
+            */
+       }
+
+        const sel_change = () => {
+        console.log('sel_change 함수 호출 완료!');
+        
+        // 1. 선택된 option 요소의 index 값을 가져와야함 : selectedIndex
+        let sel = document.frm.major;
+            // => 문서에서 이름이 frm인 form태그 안에 major라는 이름의 요소를 가져다줘
+            // => 가져와서 "sel"이라는 변수에 저장해줘
+
+
+        let sel_idx = sel.selectedIndex;
+            // => sel이라는 변수 안에 selected된 index 번호를 줘
+            // => "sel_idx"에 저장할게
+        
+        console.log('선택된 인덱스', sel_idx)
+
+        // 2. 내가 선택한 option의 요소의 값을 가져오려면?
+        console.log(options[sel_idx].value);
+       }
+
+    </script>
+</body>
+</html>

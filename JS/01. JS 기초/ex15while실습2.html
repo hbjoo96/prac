@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 현재 몸무게와 목표 몸무게를 입력받아서, 
+        // 이후 주차별 감량 몸무게를 입력받고 목표 몸무게를 달성하면
+        // '00kg 달성! 축하합니다.' 라고 출력하고 프로그램을 종료
+
+        // [실행 결과] - console
+        // 현재 몸무게 : 00kg
+        // 목표 몸무게 : 00kg
+        // 1주차 감량 몸무게 : 00kg
+        // ...
+        // 4주차 감량 몸무게 : 00kg
+        // 00kg 달성! 축하합니다!
+
+        // step1. 현재 몸무게를 입력받는다.
+        // setp2. 목표 몸무게를 입력받는다.
+        // setp3. 현재 몸무게와 목표 몸무게가 같아질 때까지 프로그램을 반복
+        // setp4. 현재 몸무게와 목표 몸무게가 같지 않을 경우에는 반복해서 감량 몸무게를 입력받는다.
+        //        prompt에  : 00주차 감량 몸무게 출력
+        // setp5. step3에 만족할 때까지 step4를 반복한다.
+
+        // 내 풀이
+
+        // let goalWeight = parseInt(prompt('목표 몸무게를 입력해주세요'))
+        // let presentWeight = parseInt(prompt('현재 몸무게를 입력해주세요'))
+        // let weight = presentWeight - goalWeight
+        // let week = 0
+        // let lossSum = 0
+
+
+        // while (true){
+
+        //     if (weight === 0){
+        //         console.log(goalWeight+'kg 달성! 축하합니다.');
+        //         break;
+        //     }else{
+        //         week += 1
+                
+        //         let loss = parseInt(prompt(week + '주차 감량 몸무게'))
+        //         lossSum += loss
+        //         weight = weight - lossSum
+        //     }
+        //     // break;
+        // }
+
+
+
+        let curWeight = parseInt(prompt('현재 몸무게는?'))
+        let goalWeight = parseInt(prompt('목표 몸무게는?'))
+        let week = 1
+
+        while (true) {
+            if (curWeight === goalWeight){
+                console.log(goalWeight+'kg 달성! 축하드립니다!')
+                break;
+                
+            } else {
+            curWeight -= parseInt(prompt(week+'주차 감량 몸무게'))
+            week++
+        }
+    }
+
+    </script>
+</body>
+</html>

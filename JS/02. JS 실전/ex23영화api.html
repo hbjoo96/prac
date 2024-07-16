@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+<body>
+    
+    <button id="btn">영화정보 요청하기!</button>
+    <script>
+
+        // 이번 예제 할 일!
+        // 1. 버튼을 클릭했을 때, ajax를 통해서 영화 API정보를 요청
+        // 2. 응답받은 데이터에서 내가 필요한 정보만 꺼내보기!(랭킹, 영화이름)
+        $('#btn').on('click', ()=>{
+            $.ajax({
+                // 1번째 요소 url -> 통신할 서버의 주소를 작성하는 공간
+                url : "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=2227cf65287855cc5e782d800e2e575d&targetDt=20240609",
+                // 2번째 요소 method(type) - 통신 방식을 지정
+                // Get 방식 VS Post 방식
+                // Get 방식 -> 데이터를 주고 받을 때 URL에 동반해서 보낸다 -> 보안에 취약
+                // Post방식 -> 데이터를 주고 받을 때 URL에 보이지가 않는다 -> 보안에 강하다.
+                method : "get", // 생략이 가능 -> 기본값은 Get방식
+                // 3번째 요소 data -> 보내줄 데이터가 있는 경우 작성(생략가능)
+                // data : {"id" : "주현빈", "pw" : "1234"}
+                // 4번째 요소 성공했을때 -> 응답이 올바르게 넘어온 경우
+                // 성공함수에는 반드시 데이터를 받아줄 매개변수가 필요하다!
+                success : (res)=>{
+                    console.log("통신 성공!", res);
+                    // 영화이름 출력
+                    console.log("영화이름", res.boxOfficeResult.dailyBoxOfficeList[0].movieNm);
+
+                    // 모든 영화 이름 출력(for을 잘 활용해보자!)
+                    for(i=0; i<res.boxOfficeResult.dailyBoxOfficeList.length; i++){
+                        console.log("영화이름", res.boxOfficeResult.dailyBoxOfficeList[i].movieNm)
+                    }
+
+                },
+                // 5번째 요소 실패했을때 -> 응답이 올바르게 넘어오지 않은 경우
+                error : ()=>{
+                    console.log("통신 실패!");
+                }
+            })
+        })
+
+        // 비동기통신을 할 때 주의점!
+        // 1. URL이 정확한지 반드시 체크할 것
+        // 2. 성공함수에는 반드시 응답데이터를 담아주는 매개변수를 작성(res)
+        // 3. 응답받은 데이터를 분석할 때는 두가지만 기억하자!
+        //    - 객체형태의 데이터를 꺼낼 때는 반드시 객체이름.key
+        //    - 배열형태의 데이터를 꺼낼 때는 반드시 배열이름[인덱스]
+
+    </script>
+
+</body>
+</html>

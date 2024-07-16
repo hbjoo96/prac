@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <img id="pic" width="200px" src="https://i.namu.wiki/i/gxDGTYzroFhkyirqaqFL0Los81pggjtQEezSKLV_1NeiSUh6m3FEeBQhxjAEyjKBYFQs-8B-sFijqcnnIxN5nQ.svg" />
+    <p id="abc">여러분 안녕하세요~ </p>
+    <input type="text" id="inputTxt" />
+    <button id="btn">내용 변경!</button>
+    <br>
+    <button id="style-btn">스타일 변경</button>
+    <button id="pic-btn">사진 변경</button>
+    <button id="this-btn">this 버튼</button>
+
+    <script>
+        // jQuery 문법의 기호는 $다.
+        // 1. 내가 원하는 HTML 요소를 JS로 가져오겠다.
+        // v-JS : document.getElementById("아이디이름")
+        // jQuery : $('선택자')
+
+        let element = $('#abc')
+        console.log('요소', element);
+
+
+        // 2. 내가 가져온 요소 안에 내용만 확인하기
+        // v-JS : .innerText 
+        // jQuery : text()
+        console.log('요소 안에 텍스트', element.text());
+
+        // 3. 내가 원하는 요소 수정해보기 (텍스트만)
+        // v-JS : .innerText = "바꿀 내용"
+        // jQuery : text('바꿀내용')
+        element.text('바꿀 값')
+
+        // 4. 내가 원하는 요소를 태그 포함해서 수정하기
+        // v-JS : innerHTML = "태그"
+        // jQuery : .html('태그')
+        element.html('<h1>태그포함 변경</h1>')
+
+        // 5. '내용변경!' 이라는 버튼을 눌렀을 때, 작성한 input 태그 값으로 내용 변경
+        // 5-1) 버튼에 이벤트 추가
+        // v-JS : .addEventListner('이벤트명', 함수)
+        // jQuery : .click(함수)
+
+        $('#btn').click(()=>{
+            console.log('btn')
+
+            // 5-2) input 태그 값 가져오기
+            // v-JS : .value
+            let val = $('#inputTxt').val()
+            console.log('값 :'+ val);
+
+            element.html(`<h1>${val}</h1>`)
+
+            // 5-3) input태그 초기화
+            // 만약 v-JS라면?
+            // .value = "";
+            $('#inputTxt').val('')
+        })
+        
+
+        // 6. 스타일 변경
+        $('#style-btn').click(()=>{
+            // v-JS : .style.속성 = '값'
+            // jQuery : .css('속성', '값')
+            element.css('backgroundColor', 'darkred')
+        })    
+
+        // 7. 속성 변경
+        // v-JS : .속성, setAttribute
+        // jQuery : attr('속성이름', '바꿀 값')
+        $('#pic-btn').click(()=>{
+            $('#pic').attr('src', 'https://i.namu.wiki/i/tlV5z8zYCf7gzJjWwBJkLhCdH764OQKO4fj6TMxqeoauQetxGF4cko_XwpbtUraGDMT-5N4fiswImrMoXGFdmeYrx6FC4fRE048AaurowDDnRDRjk3ZEXAFMp22Megwuwzwc7u6BWfwq8X0PwU_XjQ.svg')
+        })
+    
+        // +) this 문법
+        // 화살표 함수와 함께 사용할 수 없다.
+        // 같은 요소를 부를 경우 유지보수에 용이
+        // (phthon에서는 self)
+        $('#this-btn').click(function(){
+            $(this).text('변경')
+        })
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

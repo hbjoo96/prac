@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 숫자 2개를 입력받는다.
+        // let num1 = prompt("첫번째 숫자 입력 :")
+        // let num2 = prompt("두번째 숫자 입력 :")
+
+        
+        // 2. 입력받은 숫자 2개를 비교한다
+        // 3. 두개의 숫자 중 더 큰 수를 console창에 출력한다.
+        //    => 9이(가) 더 큰 수 입니다.
+        // 다 푼 사람은 캡쳐해서 단톡방에 올리고, 주변 사람들 돌아다니면서 도와주기!
+        
+
+
+
+        // 내 풀이
+        let num1 = prompt("첫번째 숫자 입력 :")
+        let num2 = prompt("두번째 숫자 입력 :")
+
+        let ans = num1-num2 > 0 ? num1 : num2
+        console.log(ans, "이 (가) 더 큰 수입니다.");
+
+        // 선생님 풀이
+        // let result = num1 > num2 ? num1+"이 더 큰 수" : num2+"이 더 큰 수"
+        // console.log(result)
+
+
+
+        // num1과 num2의 짝수 홀수를 구분해보자.
+        // 결과 : num1 홀수
+        //        num2 짝수
+
+        // 내 풀이
+        let ans2 = num1%2 == 0 ? "짝수" : "홀수"
+        let ans3 = num2%2 == 0 ? "짝수" : "홀수"
+        console.log(num1 + ans2);
+        console.log(num2 + ans3);
+
+        // 선생님 풀이
+        
+        // let result2 = num % 2 === 0 ? "짝수" : "홀수"
+        // console.log(result2)
+
+        // let num2 % 2 === 0 ? console.l0g('짝수') : console.log('홀수')
+
+
+
+    </script>
+</body>
+</html>

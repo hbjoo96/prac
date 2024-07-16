@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">이벤트 객체 확인</button>
+
+    <script>
+
+        // 이벤트 객체 -> 이벤트가 발생할 때 어떤 내용들을 담고 있는지 체크
+        // 이벤트객체를 활용하기 위해서 반드시 함수에 이벤트객체를 담아줄 매개변수가 필요하다.
+        // - 매개변수가 여러개 필요한 경우에는 맨 마지막에 event용 매개변수를 만들면 컴퓨터가 자동으로 할당
+        // ex)내가 실행한 요소이름, 부모태그, 값, 이벤트 종류 등..
+        // 이벤트 리스너 방식
+        // 1) 이벤트를 부여할 요소를 검색
+        // 문서에서 아이디가 btn인 요소를 찾아와!
+        const btn = document.getElementById('btn');
+        // 2) 찾아온 요소에 클릭 이벤트를 연결!
+        btn.addEventListener('click', (event)=>{
+            // 이벤트에 관련된 모든 내용을 확인
+            console.log("이벤트 객체", event);
+            // 이벤트의 종류 확인
+            console.log("이벤트종류", event.type);
+            // 이벤트의 주체 확인
+            console.log("이벤트주체", event.target);
+        })
+
+
+    </script>
+</body>
+</html>

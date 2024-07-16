@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- 카카오맵 API 호출 코드 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e6754ea62461c14421a44230a50af70f"></script>
+
+</head>
+<body>
+    
+    <button id="btn1">지도 생성하기</button>
+    <button id="btn2">나의 현재 위치 알아오기!</button>
+    <button id="btn3">마커 찍기</button>
+
+    <!-- 지도를 표시할 div 입니다 -->
+    <div id="map" style="width:100%;height:350px;"></div>
+
+    <script>
+    
+        // 1. 지도를 만드는 함수를 제작
+        const makeMap = (lat, lon)=>{
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+              mapOption = { 
+                center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+            // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+
+            // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+            var mapTypeControl = new kakao.maps.MapTypeControl();
+
+            // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+            // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+            map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+            // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+            var zoomControl = new kakao.maps.ZoomControl();
+            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+            // 지도에 교통정보를 표시하도록 지도타입을 추가합니다
+            map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
+        }
+
+        // 2. btn1버튼에게 makeMap 함수 연결
+        // 함수를 제작하고 요소에 연결할 때는 함수이름만 작성할 것 -> ()는 작성하지 말 것!
+        let btn1 = document.getElementById("btn1");
+        btn1.addEventListener('click', makeMap);
+
+        // 3. 현재 위치를 알아오는 함수 제작 -> geolocation 라이브러리 -> JS 기본 내장
+        // 데이터 통신의 대부분의 타입은 객체
+        const getLocation = ()=>{
+            navigator.geolocation.getCurrentPosition((position)=>{
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+                let lat = position.coords.latitude
+                let lon = position.coords.longitude
+                // 함수 안에서 다른 함수에게 값을 전달하는 경우에는 매개변수로 전달한다.
+                // 전달했다면, 반드시 받는 함수에도 매개변수가 필요하다.
+                makeMap(lat, lon);
+
+            })
+        }
+
+        // 4. btn2버튼에 getLocation 연결
+        let btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', getLocation);
+
+        // 5. 맛집 마커 찍기 함수
+        const makeMarker = ()=>{
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                mapOption = { 
+                     center: new kakao.maps.LatLng(35.146677, 126.922271), // 지도의 중심좌표
+                     level: 3 // 지도의 확대 레벨
+                };
+
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+            // 마커를 표시할 위치와 title 객체 배열입니다 
+            var positions = [
+    {
+        title: 'KT구내식당', 
+        latlng: new kakao.maps.LatLng(35.146592, 126.923634)
+    },
+    {
+        title: '동부식당', 
+        latlng: new kakao.maps.LatLng(35.146191, 126.922228)
+    },
+    {
+        title: '열도지', 
+        latlng: new kakao.maps.LatLng(35.147189, 126.923294)
+    },
+    {
+        title: '우동이 완성되다',
+        latlng: new kakao.maps.LatLng(35.148714, 126.923750)
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+
+        }
+
+        // 6. btn3버튼에 makeMarker 함수 연결
+        let btn3 = document.getElementById("btn3")
+        btn3.addEventListener("click", makeMarker)
+
+    </script>
+</body>
+</html>

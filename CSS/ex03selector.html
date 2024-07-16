@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1) 전체선택자 : 모든 요소를 선택
+            * 기호를 사용
+        */
+        *{
+            color : brown;
+        }
+        /*  2) 태그선택 : 특정 태그를 선택
+            태그의 이름을 사용
+        */
+        li{
+            color: slateblue;
+        }
+        /* 
+        선택자들을 구분해서 지정을 해줘야 하는 경우
+        => 클래스 / 아이디
+
+        클랫 선택자 : 중복가능, 재사용성이 뛰어남
+        아이디 선택자 : 중복 불가능, 한 문서당 1번만
+                        로고, 검색창, 상단바 같은 고유한 디자인
+        */
+        /*  3) 클래스 선택자
+            기호: .
+        */
+        .lunch{
+            color : red;
+        }
+        /*  4) 아이디 선택자
+        */
+        #CU{
+            color : yellowgreen
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS</h1>
+    <p>웹페이지를 꾸며주는 스타일 시트 언어</p>
+    <ul>
+        <li>CSS 기본구조</li>
+        <li>CSS 선택자</li>
+        <li>CSS 스타일</li>
+    </ul>
+    <h1 class="lunch">오늘의 점심은?</h1>
+    <ul class="lunch">
+        <li class="lunch" id="KT">구내식당 방문</li>
+        <li class="lunch" id="CU">편의점 이용</li>
+        <li class="lunch" id="MC">메가커피 이용</li>
+    </ul>
+</body>
+</html>

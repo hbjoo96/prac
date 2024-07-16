@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Firebase를 JS에 포함시키는 스크립트 태그
+       - Firebase를 사용하기 전에 반드시 이 애들을 head 태그에 포함시켜 놓아야 한다.  
+    -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+</head>
+<body>
+
+    <h1>Hello World!</h1>
+
+    <form name="frm" onsubmit="return false;">
+        ID : <input type="text" name="id"/><br>
+        email : <input type="email" name="email"/><br>
+        name : <input type="text" name="userName"/><br>
+        <button id="addUserBtn">유저등록</button>
+    </form>
+
+    <hr/>
+    <button id="getUserBtn">유저 가져오기</button>
+
+    <script src="./firebase.js"></script>
+
+</body>
+</html>

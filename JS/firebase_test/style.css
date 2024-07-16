@@ -1,0 +1,15 @@
+*{
+    font-family: 'GowunBatang-Regular';
+    /* *(전체선택자) 사용 시, 모든 글자가 해당 폰트로 나오기 때문에, 본문용 폰트를 작성하는 것을 추천!
+        제목용 폰트는 따로 
+    */
+
+    
+}
+
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

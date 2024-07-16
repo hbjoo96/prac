@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="num">
+        0
+    </p>
+
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+
+    <script>
+        /*
+        버튼을 클릭했을때, 웹 페이지의 숫자를 카운팅하는 프로그램을 구현하시오.
+        1. increase라는 함수를 선언하고 (화살표) 버튼을 눌렀을 때 그 함수가 호출되는지 확인
+            - console : "increase function called."
+
+        2. decrease라는 함수를 선언하고 (화살표) 버튼을 눌렀을 때 그 함수가 호출되는지 확인
+            - console : "decrease function called"
+
+        3. "0"이라는 숫자요소를 문서에서 가지고 와서 변수 num에 저장
+        4. increase라는 버튼을 누르면, 0이 하나씩 증가하고
+           decrease라는 버튼을 누르면, 0이 하나씩 감소하도록 하겠다.
+
+        5. 이 때, decrease 버튼을 누르더라도 음수로 가지는 않도록 지정
+        
+        */
+
+        const increase = () => {
+            console.log('increase function called') // 함수 호출 확인
+            let num = document.getElementById('num') // 변수 num에 id가 num인 요소를 가져와 담음
+            console.log(parseInt(num.innerText)) // 변수 num에서 텍스트를 정수로 변환하고 콘솔창에 출력
+
+            num.innerText = parseInt(num.innerText)+1 // 변수 num의 텍스트를 1씩 증가시킴
+        }
+        
+        const decrease = () => {
+            console.log('decrease function called') // 함수 호출 확인
+            let num = document.getElementById('num') // 변수 num에 id가 num인 요소를 가져와 담음
+            console.log(parseInt(num.innerText)) // 변수 num에서 텍스트를 정수로 변환하고 콘솔창에 출력
+
+            num.innerText = parseInt(num.innerText) > 0 ? parseInt(num.innerText)-1 : 0 // 변수 num에서 텍스트를 변경, 변수 num안 숫자가 0보다 크면 숫자에 -1을 하고 0보다 작으면 0을 출력
+        }
+
+        /* 풀이
+        const decrease = () => {
+            console.log('감소 함수 호출 됐니?')
+            let num = document.getElementById('num')
+            console.log(parseInt(num.inerText))
+
+            Case1 삼항연산자
+            num.innerText = parseInt(num.innerText) > 0 ? parseInt(num.innerText) -1 : 0
+
+            Case2 단순if문
+            if(parseInt(num.innerText) > 0){
+                num.innerText = parseInt(num.innerText)-1
+            }
+        }
+        */
+    </script>
+</body>
+</html>

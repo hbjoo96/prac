@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="frm" method="post" action="#" target="_blank">
+        이름 <input type="text" name="name" value="홍길동"><br/>
+        나이 <input type="text" name="age" value="22"><br/>
+        직업 <input type="text" name="job" value="의적"><br/>
+        PW <input type="password" name="pw" value="1234"><br/>
+        <input type="submit" name="frm_submit" value="전송">
+    </form>
+
+
+    
+
+
+    <script>
+        // document.form이름으로 form 요소에 접근 가능
+
+        // 폼객체 접근
+        console.log(document.frm);
+
+        console.log(`폼의 이름 : ${document.frm.name}`);
+        console.log(`method : ${document.frm.method}`);
+        console.log(`action : ${document.frm.action}`); // 가장 많이 사용
+        console.log(`target : ${document.frm.target}`);
+        console.log(`length : ${document.frm.length}`); // 폼안에 요소 개수 (submit까지)
+
+        // form 안에 있는 지식요소 input에 접근
+
+        let frm_len = document.frm.length;
+        for(let i=0; i<frm_len; i++){
+            console.log(`자식요소 ${document.frm.elements[i].name}`);
+        }
+        
+        for(let i=0; i<frm_len; i++){
+            console.log(`자식요소의 값 ${document.frm.elements[i].value}`);
+        }
+
+
+        console.log(`자식요소 ${document.frm.elements[2].name}`) // Collection -> 유사 배열
+
+
+
+    </script>
+</body>
+</html>

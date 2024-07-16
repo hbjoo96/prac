@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark{
+            background-color: black;
+            color : white
+        }
+        .light{
+            background-color: white;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container" class="light">
+        <h1 >
+            인공지능사관학교
+        </h1>
+        <button id="btnText" onclick="changeMode()">dark 모드</button>
+    </div>
+
+    <script>
+        // 1. changeMode라는 이름의 함수를 선언한다.
+        // 2. "dark모드"라는 버튼 클릭 시, "Light 모드" 라고 내용을 바꿔주고
+        //    "Light모드"라는 버튼 클릭 시, "Dark 모드" 라고 버튼 내용을 바꿔주자.
+        //    => id가 btnText인 요소를 가져온다. => 그 안에 있는 글자 변경
+        //    => 단, 현재 모드가 darkMode인지 lightMode인지 구분 후 변경
+        // 3. class가 light => 버튼 클릭시 => class가 dark 인지 변경
+
+        let bgcol = document.getElementById("container")
+        let texcol = document.getElementById("btnText")
+
+        const changeMode = ()=> {
+
+            texcol.innerText == 'dark 모드' ? texcol.innerText = 'light 모드' : texcol.innerText = 'dark 모드'
+
+            bgcol.classList.toggle('light')
+            bgcol.classList.toggle('dark')
+
+            
+        }
+
+        /*
+
+
+        const changeMode = ()=>{
+            console.log('changeMode Func')
+
+            let btnText = document.getElementById('btnText')
+            let container = document.getElementById('container')
+
+            if(container.classList.contains('light')){
+                btnText.innerText = "dark 모드"
+            } else {
+                btnText.innerText = "light 모드"
+            }
+
+            container.classList.toggle('light')
+            container.classList.toggle('dark')
+
+        }
+        */
+
+    </script>
+
+
+</body>
+</html>

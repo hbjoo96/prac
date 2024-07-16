@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1부터 3까지 출력하시오.
+        // for(let i=1; i<=3; i++){
+        //     console.log(i);
+        // }
+        // 100 ~ 1까지 수를 출력하세요
+            // 세미콜론은 필수!
+
+            // for(let i=100; i>=1; i--){
+            //     console.log(i);
+            // }
+
+        // 1 ~ 20까지의 숫자 중 홀/짝수의 합과 숫자들이 각각 출력되도록 구현하시오.
+        let evenSum = 0;
+        let oddSum = 0;
+        let even = '';
+        let odd = '';
+        for(let i=1; i<=20; i++){
+            if (i%2 === 0){
+                even = even + i + ' '
+                evenSum = evenSum + i
+                
+            }else{
+                odd = odd + i + ' '
+                oddSum = oddSum + i
+            }
+            
+            
+        }
+        console.log(`${even}의 합: ${evenSum}`);
+        console.log(`${odd}의 합: ${oddSum}`);
+        
+        // 반복문 사용(초기식 조건식 작업후 처리)
+        // 짝수는 나머지가 0일때 짝수가
+        // 복합대입연산자를 활용해보자
+
+
+        
+        </script>
+</body>
+</html>
