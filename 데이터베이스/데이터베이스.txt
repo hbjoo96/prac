@@ -1,0 +1,19 @@
+이름 : 조준용
+이메일주소 : rtcho9604@naver.com
+핸드폰번호 : 010-3568-3904
+
+====================================
+
+SQL Command Line
+show user ;
+-> 현재 나의 계정 상태를 조회하는 명령어
+
+conn system/12345;
+-> 오라클최고관리자(system) 계정에 접속하는 명령어
+
+alter user hr identified by 12345;
+-> 오라클 학습용 계정(hr) 계정의 비밀번호를 12345로 변경하는 명령어
+
+alter user hr account unlock;
+-> 오라클 학습용 계정(hr) 계정의 lock를 풀어주는 명령어
+
