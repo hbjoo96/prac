@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: grid
+
+}
+
+#data-container {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width : 400px;
+    height: 560px;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+#data-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-item {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* 비활성화된 버튼 스타일 */
+.page-item.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

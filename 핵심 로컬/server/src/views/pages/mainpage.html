@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>user</title>
+    <link rel="stylesheet" href="../../public/css/mainpage.css" />
+  </head>
+  <body>
+    <div class="sub_container">
+      <div class="skyblue_circle"></div>
+      <div class="skyblue_circle2"></div>
+      <div class="blue_circle"></div>
+      <div class="blue_circle2"></div>
+      <!-- 우측상단 톱니바퀴 -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              <img
+                src="../../public/images/setting_img.svg"
+                id="start_setting"
+              />
+            </a>
+            <!-- hover 세팅 / 로그아웃 메뉴 -->
+            <ul>
+              <li><a href="/management">Setting</a></li>
+              <li>
+                <a href="/user/logout">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- -와 -일 째 함께 중 ! -->
+      <div class="withPokeBox">
+        <!-- 유저 메인포켓몬 이미지 삽입위치 (임의 포켓몬 이미지 삽입) -->
+        {% if userInfo.poke_img == null %} {% else %}
+
+        <img
+          src="{{userInfo.poke_img}}"
+          class="userInfo_mainPoke_img"
+          style="
+            position: absolute;
+            top: 60px;
+            padding-left: 20%;
+            width: 60px;
+            height: 60px;
+            border-radius: 32px;
+          "
+        />
+        {% endif %}
+        <div class="pickup_box_mini">
+          <div class="bar">
+            <!-- 게이지바로 사용자의 행위에 따라 길이가 조정된다. -->
+            <div class="bar_guage_container">
+              <img src="../../public/images/bar_gauge.svg" class="bar_gauge" />
+            </div>
+          </div>
+          <img
+            src="../../public/images/random_box.svg"
+            class="random_box_mini1"
+          />
+          <div>
+            <img
+              src="../../public/images/yellowcircle.svg"
+              class="yellow_circle1"
+            />
+            <div>
+              <img src="../../public/images/key.svg" class="box_key_mini1" />
+            </div>
+          </div>
+        </div>
+        <!-- text -->
+        <!-- userInfo.main_poke / userInfo.with_date가 null이면 안내문구 출력 -->
+        {% if userInfo.main_poke == null %}
+        <div class="if_null">
+          <span class="with_main">대표 포켓몬을 설정해주세요.</span>
+        </div>
+        {% else %}
+        <!-- null 값이 아니면 렌더 -->
+        <div class="text_congra">축하해요 !</div>
+        <div class="text">
+          <div>
+            <span class="with_main">{{ userInfo.with_date | daysSince }}</span>
+            <span class="text2">일째<br /></span>
+            <span class="with_main">{{ userInfo.main_poke }}</span>
+            <span class="text2">와<br />함께 중!</span>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- 도감페이지 이동탭 -->
+      <div
+        class="collec"
+        style="cursor: pointer"
+        onclick="location.href='/dictionary'"
+      >
+        <div class="bar_mini">
+          <!-- 게이지바로 사용자의 행위에 따라 길이가 조정된다. -->
+          <div>
+            <img
+              src="../../public/images/bar_gauge.svg"
+              class="bar_mini_gauge"
+            />
+          </div>
+        </div>
+        <div class="pickup_box">
+          <img
+            src="../../public/images/random_box.svg"
+            class="random_box_mini1"
+          />
+          <div>
+            <img
+              src="../../public/images/yellowcircle.svg"
+              class="yellow_circle1"
+            />
+            <div>
+              <img src="../../public/images/key.svg" class="box_key_mini1" />
+            </div>
+          </div>
+        </div>
+        <!-- text -->
+        <div class="collec_pickup">도감페이지</div>
+        <!-- --개의 포켓몬을 수집했어요 ! -->
+        <div>
+          <div class="collec_text">
+            {% if userInfo.poke_count == 0%}
+            <div class="if_null">
+              <br />
+              <span class="with_main">
+                아직 포켓몬을 <br />수집하지 않았어요.</span
+              >
+            </div>
+            {% else %}
+            <br />
+
+            <span class="poke_img_text" id="poke-img-text"
+              >{{ userInfo.poke_count }}</span
+            >
+            <span class="poke_img_text">개</span>
+            <span class="collected_text"
+              >의<br />포켓몬을<br />수집했어요!</span
+            >
+            {% endif %}
+          </div>
+          <div class="collec_gauge" id="collec-gauge">
+            <span class="collect_cnt">{{userInfo.poke_count}}</span>
+            <span class="total_poke_text">/150</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 뽑기페이지 이동탭 -->
+      <div
+        class="pickup"
+        style="cursor: pointer"
+        onclick="location.href='/pickuppoke'"
+      >
+        <!-- text -->
+        <div class="collec_pickup">뽑기페이지</div>
+        <!-- {{ pickup_cnt }}번 뽑기를 실행했어요 ! -->
+        <div class="pickup_text">
+          <div>
+            {% if userInfo.pickup_cnt == 0%}
+            <div class="if_null">
+              <span class="with_main">
+                아직 뽑기를 <br />실행하지 않았어요.</span
+              >
+            </div>
+            {% else %}
+            <span class="pickup_cnt">{{userInfo.pickup_cnt}}번<br /></span>
+            <span class="pickup_cnt_text">뽑기를<br />실행했어요 !</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="../../public/js/mainpage.js"></script>
+  </body>
+</html>

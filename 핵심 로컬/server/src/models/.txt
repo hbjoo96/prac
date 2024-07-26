@@ -1,0 +1,3 @@
+1300장의 이미지를
+augumenation(flip,rotation degree=15)을 통해 3112장으로 늘렸습니다.
+

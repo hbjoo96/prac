@@ -1,0 +1,23 @@
+.dropdown{
+    position : absolute;
+    display : grid ;
+    grid-template-rows : 30px ;
+    grid-template-columns : 65px ;
+
+    background-color: black;
+}
+  
+.dropdown-content{
+    display : none;
+    position : absolute;
+    top : 40px;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+}
+  
+.dropdown-content a{
+    display : inline;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: inline;
+}

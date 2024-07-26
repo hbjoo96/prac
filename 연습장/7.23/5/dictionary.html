@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dict_style.css">
+</head>
+<body>
+    <div class="sub_container">
+        
+        <div class="skyblue_circle" id="skyblue_top_circle"></div>
+        <div class="skyblue_circle" id="skyblue_bottom_circle"></div>
+        <div class="blue_circle" id="blue_top_circle"></div>
+        <div class="blue_circle" id="blue_bottom_circle"></div>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="./setting_img.svg" id="start_setting">
+                    </a>
+                    <ul>
+                        <li><a href="#">Setting</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <a href="./user.html" class="btn_back">< 뒤로</a>
+        <div class="dict_box" id="top_box">{{% len(poke_img)+1 %}}개의 포켓몬을 수집했어요!</div>
+        <div class = "bar1"></div>
+        
+        <div class = "pickup_box">
+            <img src="../../public/images/random_box.svg" id="box">
+            <div>
+              <img src = "../../public/images/yellowcircle.svg" id="circle">
+                <div>
+                    <img src = "../../public/images/key.svg" id="key_hole">
+                </div>
+            </div>
+        </div>
+        <!-- 데이터를 표시할 컨테이너 -->
+        <div id="data-container"></div>
+        <!-- 페이지네이션 버튼을 표시할 컨테이너 -->
+        <div id="pagination"></div>
+
+    </div>
+    <script src="dict.js"></script>
+</body>
+</html>

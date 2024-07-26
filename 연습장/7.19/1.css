@@ -1,0 +1,2 @@
+#mouse-over-label:hover ~ .menubars { display: block; } 
+.menubars { display: none; }

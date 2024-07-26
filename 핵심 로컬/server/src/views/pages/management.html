@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/manage_style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="sub_container">
+      <div class="skyblue_circle" id="skyblue_top_circle"></div>
+      <div class="skyblue_circle" id="skyblue_bottom_circle"></div>
+      <div class="blue_circle" id="blue_top_circle"></div>
+      <div class="blue_circle" id="blue_bottom_circle"></div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              <img
+                src="../../public/images/setting_img.svg"
+                id="start_setting"
+              />
+            </a>
+            <ul>
+              <li><a href="/management">Setting</a></li>
+              <li><a href="/user/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <a href="./mainpage" class="btn_back">< 뒤로</a>
+
+      <div id="left_box" style="cursor: pointer" onclick="">
+        <img id="camera" src="../../public/images/camera.svg" alt="" />
+        <span id="left_box_text">사진 등록하기</span>
+      </div>
+      <div id="right_box">
+        <span class ="right_box_text1">지금까지</span></br> 
+        <span id = "attend_date">{{attend.date}}일</span>
+        </br><span class = "right_box_text2">연속 출석했어요 !</span>
+        <div class = "user_point">
+          <span class = "have_point">보유 포인트</span>
+          <img src="../../public/images/point2.svg" class = "point">
+        </br>
+          <span>{{user.point}}</span>
+        </div>
+      </div>
+      <!-- 달력 -->
+      <div
+        class="calendar-container">
+        <div class="calendar">
+          <div class="calendar-header">
+            <button id="prevMonth">&lt;</button>
+            <div id="calendarTitle"></div>
+            <button id="nextMonth">&gt;</button>
+          </div>
+          <table id="calendarTable" style="cursor: pointer" onclick="location.href='scheduler.html'">
+            <thead>
+              <tr>
+                <th id="SUN">SUN</th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th id="SAT">SAT</th>
+              </tr>
+            </thead>
+            <tbody id="calendarBody">
+              <!-- 날짜가 여기에 삽입됩니다 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modalText"><span>사진 등록방법을 선택하세요 !</span></div>
+          <button id="file_upload">사진파일 올리기</button>
+          <button id="camera_upload">직접 찍기</button>
+          <input
+            type="file"
+            id="file_choose"
+            accept="image/*"
+            style="display: none"
+          />
+          <input
+            type="file"
+            id="camera_capture"
+            accept="image/*"
+            style="display: none"
+          />
+          <div id="preview"></div>
+          <div id="camera_preview"></div>
+
+          <!-- axios로 input type file 로 보내줘야함... 이건 임시 -->
+          <button id="img_submit">등록하기</button>
+          <div id="predict_result">결과</div>
+        </div>
+      </div>
+    </div>
+    <script src="../../public/js/manage.js"></script>
+  </body>
+</html>

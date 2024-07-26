@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pickupPoke</title>
+    <link rel="stylesheet" href="./pickuppoke.css" />
+  </head>
+  <body>
+    <div class="sub_container">
+      <div class="skyblue_circle"></div>
+      <div class="blue_circle2"></div>
+      <!-- 우측상단 톱니바퀴 -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              <img src="./images/setting_img.svg" id="start_setting" />
+            </a>
+            <!-- hover 세팅 / 로그아웃 메뉴 -->
+            <ul>
+              <li><a href="#">Setting</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <a href="./mainpage.html" class="btn_back">< 뒤로</a>
+      <!-- 화면 내 흰색박스 -->
+      <div class="random_back">
+        <!-- 뽑기박스 -->
+        <div class="pickup_box" id="openPickupModal">
+          <img src="./images/random_box.svg" class="random_box" />
+          <div>
+            <img src="./images/yellowbox.svg" class="yellow_box" />
+            <div>
+              <img src="./images/key.svg" class="box_key" />
+            </div>
+          </div>
+        </div>
+        <!-- rand_cnt : 뽑기 실행 횟수 -->
+        <h1 class="rand_cnt">상자를 눌러 새로운 포켓몬을 만나보세요 !</h1>
+      </div>
+      <!-- 모달창 기본구조 -->
+      <div id="myModal" class="modal">
+        <div class="modal_content">
+          <span class="close" id="closePickupModal">&times;</span>
+          <!-- 뽑기를 통해 나온 포켓몬을 출력한다. 코드상에는 임의의 포켓몬 사진 등록-->
+          <img
+            src="./images/grayscale_images(png)/22.png"
+            class="pickup_result_img"
+          />
+          <div class="pickup_result">
+            {{pickuppoke.pickup_result}}가 나왔습니다!
+          </div>
+          <!-- <div><span class = "pickup_result">{{pickup_result}}</span>
+              <span class = "pickup_text">가 나왔습니다 !</span></div> -->
+        </div>
+      </div>
+    </div>
+
+    <script src="./pickuppoke.js"></script>
+  </body>
+</html>

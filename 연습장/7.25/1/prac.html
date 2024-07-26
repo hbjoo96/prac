@@ -1,0 +1,47 @@
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div>
+    <input
+      type="email"
+      placeholder="email을 입력해주세용"
+      id="email"
+      value=""
+    />
+  </div>
+  <div>
+    <input
+      type="password"
+      placeholder="비밀번호를 입력해주세용"
+      id="pw"
+      value=""
+    />
+  </div>
+  <input type="button" onclick="onLoggin()" value="로그인" />
+
+  <script>
+    let onLoggin = async function () {
+      const email = document.getElementById("email");
+      const password = document.getElementById("pw");
+
+      try {
+        // axios으로 로그인 요청 (post)
+        let res = await axios({
+          method: "POST",
+          url: "https://reqres.in/api/login",
+          data: {
+            email: email.value,
+            password: password.value,
+          },
+        });
+        console.log(res);
+        document.write(JSON.stringify(res));
+      } catch (err) {
+        console.log(err);
+        throw new Error(err);
+      }
+    };
+  </script>
+</body>
