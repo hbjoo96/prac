@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const MyToDo = () => {
   const [inputText, setInputText] = useState([]);
@@ -15,7 +15,23 @@ const MyToDo = () => {
     // concat : 기존 배열에 데이터를 추가한 모습으로 새로운 배열을 생성하는 기능
     setInputText(inputText.concat(inputRef.current.value));
     // console.log(inputRef.current.value);
+
+    // 제대로 동작 안하는 이유 : set함수가 close함수이기에 맨 마지막에 실행됨
   }
+  // state 변수에 의해서 실행되어지는 함수
+  // state 변수에 지정되는 함수를 만들겠다
+
+  // useEffect : 함수 컴포넌트에서 LifeCycle을 기준으로 실행시키는 함수
+  // useEffect = componentDidMount + componentDidupdate
+  useEffect(() => {
+    // 최대 목표 개수에 도달했습니다!
+    console.log("useEffect"); // --> 랜더링 확인 가능!
+
+    if (inputText.length == 5) {
+      alert("최대 목표 개수에 도달했습니다!");
+    }
+  });
+
   function del_Btn(e) {
     // 배열에 있는 요소 중 사용자가 선택한 요소를 삭제하겠습니다.
     // 1. 어떻게 삭제할 수 있을까
@@ -28,6 +44,7 @@ const MyToDo = () => {
     //   inputText.filter((data) => data != e.target.getAttribute("value"))
     // );
     setInputText(inputText.filter((data, index) => index !== e));
+    // data를 사용하지 않는데 굳이 쓰는 이유: 이름이 중요한게 아니라 순서가 중요한 것, 첫번째 오는 매개변수에는 데이터가 들어가기 때문에 사용해야함 / 아니면 >>(_,index)<< 이 형태도 가능
     // console.log(e.target.className);
     // console.log(inputText);
     // console.log(e);

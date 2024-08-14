@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // usestate에 의해서 랜더링될때 계속 초기화 돼서 전역변수로 사용해야함.
 let com_Score = 0;
@@ -26,6 +26,7 @@ const MyFinal = () => {
   const [comScore, setcomScore] = useState(0);
   const [userScore, setUserScore] = useState(0);
   const [result, setResult] = useState("");
+  const [num, setNum] = useState(0);
 
   // useRef 변수는 재렌더링에 영향을 받지 않는다!
   const comImgRef = useRef();
@@ -52,17 +53,26 @@ const MyFinal = () => {
       setcomScore(comScore + 1);
     } else if (com_Point == user_Point) {
     }
+
+    setNum(num + 1);
+  }
+  useEffect(() => {
     if (com_Score == 10) {
       setResult("com WIN");
     } else if (user_Score == 10) {
       setResult("user WIN");
-    } else if (com_Point == user_Point) {
+    } else if (com_Score == user_Score) {
     }
-  }
+    console.log("useEffect");
+  }, [comScore, userScore]);
+  // --> dependency Array (의존배열), 안에 있는 값이 바뀔때만 useEffect를 실행시키겠다
+  // [] -> 첫 랜더링에서만 실행 / componentDidMount 같은 역할
+  // 없으면 무조건 실행시키겠다
 
   return (
     <div>
       <h1>DICE GAME</h1>
+      <p>클릭 수 : {num}</p>
       <button onClick={start_Btn}>Start</button>
 
       <div className="dice">
